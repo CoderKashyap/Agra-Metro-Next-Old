@@ -1,26 +1,26 @@
-"use client";
+"use client"
 
 import { useState } from "react";
-// import MetaData from "../app/components/layout/MetaData";
-// import "./home.css";
-import PlanYourJourneyCol from "../app/components/home/PlanYourJourneyCol";
-import KnowYourLocationCol from "../app/components/home/KnowYourLocationCol";
-import NumericCounterInfo from "../app/components/home/NumericCounterInfo";
-import LiveActiveSponsored from "../app/components/home/LiveActive&sponsored";
-import TourGuide from "../app/components/home/TourGuide";
-import LatestBlogs from "../app/components/home/LatestBlogs";
-import WayOfTransportToAgra from "../app/components/home/WayOfTransportToAgra";
+import MetaData from "../../components/layout/MetaData";
+import "./home.css";
+import PlanYourJourneyCol from "../../components/home/PlanYourJourneyCol";
+import KnowYourLocationCol from "../../components/home/KnowYourLocationCol";
+import NumericCounterInfo from "../../components/home/NumericCounterInfo";
+import LiveActiveSponsored from "../../components/home/LiveActive&sponsored";
+import TourGuide from "../../components/home/TourGuide";
+import LatestBlogs from "../../components/home/LatestBlogs";
+import WayOfTransportToAgra from "../../components/home/WayOfTransportToAgra";
 
 const Home = () => {
   const [openPlanYourJourneyForm, setOpenPlanYourJourneyForm] = useState(false);
   return (
     <>
-      {/* <MetaData
+      <MetaData
         title="Agra Metro- Stations, Fare, Timings & Route map"
         description="Agra ghumo, Khao pio aish kro."
         keywords="Agra Metro"
         image={undefined}
-      /> */}
+      />
 
       <section className="w-full">
         <div className="grid place-items-center">

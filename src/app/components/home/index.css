@@ -1,0 +1,86 @@
+.map-open {
+    animation-name: open;
+    animation-duration: 0.2s;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-iteration-count: 1;
+}
+
+@keyframes open {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.map-close {
+    animation-name: close;
+    animation-duration: 0.2s;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-iteration-count: 1;
+}
+
+@keyframes close {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Text lines ko hide or ... bana deta hai */
+.boNTXXBlogSection {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tGfAImgCarousel {
+    height: 10rem;
+    width: 18rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 5s;
+
+    animation-name: animateFamousAttractionKeyframes;
+    animation-direction: alternate-reverse;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
+    animation-duration: 30s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animateFamousAttractionKeyframes {
+    0% {
+        background-image: url("/tourGuide/tajMahal.webp");
+    }
+
+    20% {
+        background-image: url("/tourGuide/Fatehpur-Sikri.jpg");
+    }
+
+    40% {
+        background-image: url("/tourGuide/etma-ud-Daulah.jpg");
+    }
+
+    60% {
+        background-image: url("/tourGuide/akbar-tomb-sikandra.jpg");
+    }
+
+    80% {
+        background-image: url("/tourGuide/redfort.jpg");
+    }
+
+    100% {
+        background-image: url("/tourGuide/Fatehpur-Sikri.jpg");
+    }
+}
