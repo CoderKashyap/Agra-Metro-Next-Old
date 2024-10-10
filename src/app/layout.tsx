@@ -8,16 +8,8 @@ import Footer from "../app/components/layout/Footer";
 // import { CssBaseline } from "@mui/material";
 // import { ThemeProvider, createTheme } from "@mui/material/styles";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+
+
 const quandoSans = localFont({
   src: "./fonts/Quando-Regular.woff",
   variable: "--font-quando-sans",
@@ -45,8 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${quandoSans.variable} antialiased`}
+      <body className={`${quandoSans.variable} antialiased`}
       >
         <Header />
         {/* <ThemeProvider theme={theme}> */}

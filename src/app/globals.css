@@ -32,7 +32,6 @@
 
 @layer base {
   body {
-    font-family: var(--font-geist-sans);
     /* font-family: popins, sans-serif; */
     /* font-family: var(--font-quando-sans); */
   }

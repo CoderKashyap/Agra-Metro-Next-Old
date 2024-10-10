@@ -1,13 +1,30 @@
-import { useEffect, useState } from "react";
+"use client"
+
+import { useEffect, useState, FC } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import { MdPlayArrow } from "react-icons/md";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { useMediaQuery } from "@mui/material";
 import Image from "next/image";
-import Logo from "../../../public/UPMRC.png";
-import MetroLogo from "../../../public/metroAgraLogo.webp";
-// import { useRouter } from "next/router";
+import Logo from "/public/UPMRC.png";
+import MetroLogo from "/public/metroAgraLogo.webp";
+
+type Station = {
+  stationName: string;
+  stationImgUrl: string;
+};
+
+type PlanYourJourneyColProps = {
+  openPlanYourJourneyForm: boolean;
+  setOpenPlanYourJourneyForm: (value: boolean) => void;
+};
+
+// Define prop types for the subcomponent
+interface ButtonProps {
+  setOpenForm: (open: boolean) => void;
+}
+
 
 const stations = [
   { stationName: "Taj East Gate", stationImgUrl: "" },
@@ -18,25 +35,21 @@ const stations = [
   { stationName: "Mankameshwar", stationImgUrl: "" },
 ];
 
-const PlanYourJourneyCol = ({
+
+const PlanYourJourneyCol: FC<PlanYourJourneyColProps> = ({
   openPlanYourJourneyForm,
   setOpenPlanYourJourneyForm,
 }) => {
   const breakPoint = useMediaQuery("(max-width:428px)");
-  // const router = useRouter();
 
-  const [fromStation, setFromStation] = useState("");
-  const [showFromStation, setShowFromStation] = useState(false);
-  const [fromStationObjRemake, setFromStationObjRemake] = useState<
-    Array<{ stationName: string }>
-  >([]);
-  const [toStationObjRemake, setToStationObjRemake] = useState<
-    Array<{ stationName: string }>
-  >([]);
+  const [fromStation, setFromStation] = useState<string>("");
+  const [showFromStation, setShowFromStation] = useState<boolean>(false);
+  const [fromStationObjRemake, setFromStationObjRemake] = useState<Station[]>([]);
+  const [toStationObjRemake, setToStationObjRemake] = useState<Station[]>([]);
 
-  const [toStation, setToStation] = useState("");
-  const [showToStation, setShowToStation] = useState(false);
-  const [showCollapseFormButton, setShowCollapseFormButton] = useState(false);
+  const [toStation, setToStation] = useState<string>("");
+  const [showToStation, setShowToStation] = useState<boolean>(false);
+  const [showCollapseFormButton, setShowCollapseFormButton] = useState<boolean>(false);
 
   useEffect(() => {
     if (stations) setFromStationObjRemake(stations);
@@ -283,8 +296,6 @@ const PlanYourJourneyCol = ({
                     <Image
                       className="sm:h-7 sm:w-7 h-6 w-6 ml-2 object-contain"
                       src={MetroLogo}
-                      // data-src="/metroAgraLogo.webp" // Store the high-quality image URL in a data attribute
-                      // loading="lazy" // Enable lazy loading in supporting browsers
                       alt="brandImage"
                     />
                     <span className="ml-2"> {toStation} </span>
@@ -416,16 +427,20 @@ const PlanYourJourneyCol = ({
   );
 };
 
-PlanYourJourneyCol.Button = ({ setOpenForm }) => {
+
+export const PlanYourJourneyColButton: React.FC<ButtonProps> = ({ setOpenForm }) => {
   return (
     <div
       className="md:hidden bg-[#daf3ff] border border-[#93c7df] p-4 rounded-lg flex items-center gap-2 cursor-pointer group"
       onClick={() => setOpenForm(true)}
     >
-      <img height="40px" width="40px" src="/UPMRC.png" alt="Metro Agra Logo" />
+      {/* Use Next.js Image component for optimized loading */}
+      <Image height={40} width={40} src="/UPMRC.png" alt="Metro Agra Logo" />
+
       <span className="text-lg font-medium text-gray-800">
         Plan Your Journey
       </span>
+
       <MdPlayArrow
         size={28}
         className="text-red-700 group-hover:rotate-90 transition-transform duration-150 ease-in-out"
@@ -435,3 +450,24 @@ PlanYourJourneyCol.Button = ({ setOpenForm }) => {
 };
 
 export default PlanYourJourneyCol;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

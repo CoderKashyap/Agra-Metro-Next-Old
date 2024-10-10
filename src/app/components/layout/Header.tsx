@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
-import AgraMetroLogo from "../../../public/metroAgraLogo.webp";
+import { usePathname } from "next/navigation"; // Use usePathname instead of useRouter
+import AgraMetroLogo from "/public/metroAgraLogo.webp";
 import SearchIcon from "@mui/icons-material/Search";
 import Notification from "./Notification";
 import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
@@ -11,78 +12,35 @@ import Image from "next/image";
 const Navbar = () => {
   const [openNav, setOpenNav] = useState(false);
   const [openNotification, setOpenNotification] = useState(false);
-  // const [openAvatarDropdown, setOpenAvatarDropdown] = useState(false);
+  const pathname = usePathname(); // Get the current path
 
   const toggleNav = () => {
     setOpenNav(!openNav);
-    // setOpenAvatarDropdown(false);
   };
 
-  // const toggleAvatarDropdown = () => {
-  //     setOpenAvatarDropdown(!openAvatarDropdown);
-  // };
+  const isActiveLink = (path: string) => {
+    return pathname === path ? "text-black" : "text-gray-600"; // Check if the current path matches
+  };
 
   const navList = () => {
     return (
       <>
-        <Link
-          href="/"
-          onClick={toggleNav}
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-black" : "text-gray-600"
-          }
-        >
+        <Link href="/" onClick={toggleNav} className={isActiveLink("/")}>
           Home
         </Link>
-        <Link
-          href="/station"
-          onClick={toggleNav}
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-black" : "text-gray-600"
-          }
-        >
+        <Link href="/station" onClick={toggleNav} className={isActiveLink("/station")}>
           Station
         </Link>
-        {/* <div
-                    onClick={() => { setOpenNotification(true); toggleNav() }}
-                    className={"text-gray-600 hover:cursor-pointer"}
-                >
-                    Notices & Alerts
-                </div> */}
-        <Link
-          href="/facilities"
-          onClick={toggleNav}
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-black" : "text-gray-600"
-          }
-        >
+        <Link href="/facilities" onClick={toggleNav} className={isActiveLink("/facilities")}>
           Facilities
         </Link>
-        <Link
-          href="/network"
-          onClick={toggleNav}
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-black" : "text-gray-600"
-          }
-        >
+        <Link href="/network" onClick={toggleNav} className={isActiveLink("/network")}>
           Network
         </Link>
-        <Link
-          href="/helpcontact"
-          onClick={toggleNav}
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-black" : "text-gray-600"
-          }
-        >
+        <Link href="/helpcontact" onClick={toggleNav} className={isActiveLink("/helpcontact")}>
           Help & Contact
         </Link>
-        <Link
-          href="/blogs"
-          onClick={toggleNav}
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-black" : "text-gray-600"
-          }
-        >
+        <Link href="/blogs" onClick={toggleNav} className={isActiveLink("/blogs")}>
           Blogs
         </Link>
       </>
@@ -106,7 +64,6 @@ const Navbar = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
                 </span>
-
                 <CircleNotificationsIcon fontSize="large" />
               </div>
               <button
@@ -127,7 +84,6 @@ const Navbar = () => {
                     d="M4 6h16M4 12h16m-7 6h7"
                   ></path>
                 </svg>
-
                 <svg
                   className={`w-6 h-6 ${openNav ? "block" : "hidden"}`}
                   fill="none"
@@ -163,11 +119,10 @@ const Navbar = () => {
               <CircleNotificationsIcon fontSize="large" />
             </div>
 
-            {/* Search bar */}
             <div className="">
               <input
                 type="search"
-                name="serch"
+                name="search"
                 placeholder="Search latest updates"
                 className="bg-gray-50 text-gray-500 border border-gray-300 h-10 px-3 pr-6 rounded-full text-sm focus:outline-none"
               />
@@ -182,11 +137,10 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* Phone view  */}
       <div
         className={`${
           openNav ? "block" : "hidden"
-        } backdrop-blur-lg bg-black bg-opacity-50 p-6 gap-6 flex flex-col justify-center items-end z-10 lg:hidden h-screen w-full absolut fixed top-0 left-0 right-0 bottom-0`}
+        } backdrop-blur-lg bg-black bg-opacity-50 p-6 gap-6 flex flex-col justify-center items-end z-10 lg:hidden h-screen w-full fixed top-0 left-0 right-0 bottom-0`}
       >
         <div className="w-full flex justify-center items-center mb-5">
           <Link
@@ -194,14 +148,14 @@ const Navbar = () => {
             className="bg-gray-100 rounded-full px-4 py-3"
             onClick={toggleNav}
           >
-            <img className="h-12 lg:h-full" src={AgraMetroLogo} alt="" />
+            <Image className="h-12 lg:h-full" src={AgraMetroLogo} alt="" />
           </Link>
         </div>
 
         <div className="flex md:hidden relative w-full">
           <input
             type="search"
-            name="serch"
+            name="search"
             placeholder="Search latest updates"
             className="bg-gray-50 text-gray-500 border border-gray-300 h-11 w-full px-5 pr-12 rounded-full text-sm focus:outline-none"
           />
@@ -218,7 +172,7 @@ const Navbar = () => {
         </div>
         <button
           onClick={toggleNav}
-          className="block lg:hidden border border-white bg-whit bg-gray-100 p-2 rounded-full text-gray-600"
+          className="block lg:hidden border border-white bg-gray-100 p-2 rounded-full text-gray-600"
         >
           <svg
             className={`w-6 h-6 ${openNav ? "block" : "hidden"}`}
@@ -236,12 +190,8 @@ const Navbar = () => {
           </svg>
         </button>
       </div>
-      {/* {openNotification ? ( */}
+
       <Notification open={openNotification} setOpen={setOpenNotification} />
-      {/* ) : null} */}
-      {/* <div className="text-white bg-yellow-500 p-2 rounded-full absolute z-20 bottom-0 md:bottom-24 right-4 animate-bounce hover:cursor-pointer" onClick={()=>setOpenNotification(true)}>
-        <NotificationsActiveIcon fontSize="large" />
-      </div> */}
     </>
   );
 };

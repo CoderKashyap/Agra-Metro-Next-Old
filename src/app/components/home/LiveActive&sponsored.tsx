@@ -1,6 +1,6 @@
 import Image from "next/image";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-import groptoBanner1 from "../../../public/promotionBanner/Holibanner.webp";
+import groptoBanner1 from "/public/promotionBanner/Holibanner.webp";
 
 const LiveActiveSponsored = () => {
     return (<>
@@ -31,7 +31,7 @@ const LiveActiveSponsored = () => {
 
 
             <div className="cursor-pointer">
-                <Image src={groptoBanner1} className="rounded-lg" alt="" />
+                <Image src={groptoBanner1} className="rounded-lg" alt="Sponsored Banner" />
             </div>
 
 

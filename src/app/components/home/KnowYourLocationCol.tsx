@@ -7,7 +7,7 @@ import PinDropIcon from "@mui/icons-material/PinDrop";
 import ZoomInMapOutlinedIcon from "@mui/icons-material/ZoomInMapOutlined";
 import "./index.css";
 import Image from "next/image";
-import Map from "../../../public/agra-route-map.png";
+import Map from "/public/agra-route-map.png";
 
 const stations = [
   { stationName: "Taj East Gate", stationImgUrl: "" },
@@ -193,7 +193,6 @@ const KnowYourLocationCol = () => {
               className=""
               src={Map}
               alt=""
-              // srcSet="../../public/agra-route-map.png"
             />
           </div>
           <span

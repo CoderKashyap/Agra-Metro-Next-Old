@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import agraMetroGolLogo from '../../../public/metroLogoGol.png'
-import AgraMetroKeyDetailsUpdates from '../../../public/blogsImg/Agra Metro Key details & updates.webp'
-import expertFirstTimeVisitors from '../../../public/blogsImg/expert tip for firstTime visitors.jpg'
-import agraTourism from '../../../public/blogsImg/agraTourism.jpg'
-import vrindavanMathura from '../../../public/blogsImg/vrindavanMathura.jpg'
+import agraMetroGolLogo from '/public/metroLogoGol.png'
+import AgraMetroKeyDetailsUpdates from '/public/blogsImg/Agra Metro Key details & updates.webp'
+import expertFirstTimeVisitors from '/public/blogsImg/expert tip for firstTime visitors.jpg'
+import agraTourism from '/public/blogsImg/agraTourism.jpg'
+import vrindavanMathura from '/public/blogsImg/vrindavanMathura.jpg'
 
 import "./index.css"
 
@@ -13,7 +13,6 @@ export default function LatestBlogs() {
 
     return (
         <>
-
 
             <section className="font-quando xl:px-18 px-4 md:px-6 py-8">
 

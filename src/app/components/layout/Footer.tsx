@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Logo from "../../../public/metroAgraLogo.webp";
+import Logo from "/public/metroAgraLogo.webp";
 import XIcon from "@mui/icons-material/X";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import Appstore_Logo from "../../../public/Appstore.webp";
-import Playstore_Logo from "../../../public/playstore.webp";
+import Appstore_Logo from "/public/Appstore.webp";
+import Playstore_Logo from "/public/playstore.webp";
 
 const Footer = () => {
   return (

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useParams } from "next/navigation";
-import PlanYourJourneyCol from "../components/home/PlanYourJourneyCol";
+import PlanYourJourneyCol, {PlanYourJourneyColButton} from "../components/home/PlanYourJourneyCol";
 import WheelchairPickupIcon from "@mui/icons-material/WheelchairPickup";
 import EscalatorIcon from "@mui/icons-material/Escalator";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
@@ -314,7 +314,7 @@ const StationDetails = () => {
                 openPlanYourJourneyForm={openPlanYourJourney}
                 setOpenPlanYourJourneyForm={setOpenPlanYourJourney}
               />
-              {/* <PlanYourJourneyCol.Button setOpenForm={setOpenPlanYourJourney} /> */}
+              <PlanYourJourneyColButton setOpenForm={setOpenPlanYourJourney} />
             </div>
           </div>
         </div>

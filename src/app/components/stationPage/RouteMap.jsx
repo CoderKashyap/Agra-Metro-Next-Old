@@ -1,5 +1,5 @@
 import React from "react";
-import Station_Logo from "../../../public/Station_logo-2.png";
+import Station_Logo from "/Station_logo-2.png";
 import Link from "next/link";
 import Image from "next/image";
 

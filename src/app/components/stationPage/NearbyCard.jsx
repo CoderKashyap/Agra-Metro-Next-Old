@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../../public/sunset.jpg";
+import Logo from "/sunset.jpg";
 import { RiPinDistanceLine } from "react-icons/ri";
 import { IoFootstepsSharp } from "react-icons/io5";
 import Image from "next/image";
